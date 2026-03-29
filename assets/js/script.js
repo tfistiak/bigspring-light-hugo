@@ -13,7 +13,7 @@
       spaceBetween: 24,
       loop: true,
       pagination: {
-        el: carousel.querySelector(".pagination"),
+        el: carousel.querySelector(".swiper-pagination"),
         type: "bullets",
         clickable: true,
       },

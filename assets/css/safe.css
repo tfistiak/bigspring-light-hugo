@@ -23,13 +23,14 @@
 }
 
 /* swiper pagination */
-.service-carousel .pagination {
+.service-carousel .swiper-pagination {
   @apply flex justify-center;
+}
 
-  span {
-    @apply mx-[5px] inline-block h-[10px] w-[10px] cursor-pointer rounded-full border border-primary;
-    &.swiper-pagination-bullet-active {
-      @apply bg-primary;
-    }
-  }
+.service-carousel .swiper-pagination .swiper-pagination-bullet {
+  @apply mx-[5px] inline-block h-[10px] w-[10px] cursor-pointer rounded-full border border-primary;
+}
+
+.service-carousel .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply bg-primary;
 }

@@ -1,30 +1,32 @@
 /* section style */
 .section {
-  @apply pt-[70px] pb-[70px];
+  @apply py-15 lg:py-17;
 }
 
 /* container */
 .container {
-  @apply mx-auto! max-w-[1140px]! px-4!;
+  @apply mx-auto! max-w-[1340px]! px-4!;
 }
 
 /* social icon style */
 .social-icons {
   @apply space-x-4;
-  li {
-    @apply inline-block;
-    a {
-      @apply block h-9 w-9 rounded-full border border-primary text-center text-white transition hover:bg-primary;
+}
 
-      svg {
-        @apply m-auto h-9 fill-primary;
-      }
+.social-icons li {
+  @apply inline-block;
+}
 
-      &:hover svg {
-        @apply fill-white;
-      }
-    }
-  }
+.social-icons li a {
+  @apply block h-9 w-9 rounded-full border border-primary text-center text-primary transition hover:bg-primary flex items-center justify-center hover:text-white;
+}
+
+.social-icons li a svg {
+  @apply m-auto h-5 fill-primary;
+}
+
+.social-icons li a:hover svg {
+  @apply fill-white;
 }
 
 /* content style */
@@ -35,13 +37,14 @@
   @apply prose-strong:text-text-dark dark:prose-strong:text-darkmode-text-dark;
   @apply prose-li:text-text dark:prose-li:text-darkmode-text;
   @apply prose-hr:border-border dark:prose-hr:border-darkmode-border;
+}
 
-  ul {
-    @apply pl-2;
-    li {
-      @apply relative list-none pl-5 before:absolute before:left-0 before:top-[10px] before:h-2 before:w-2 before:rounded-full before:bg-primary before:content-[''];
-    }
-  }
+.content ul {
+  @apply pl-2;
+}
+
+.content ul li {
+  @apply relative list-none pl-5 before:absolute before:left-0 before:top-[10px] before:h-2 before:w-2 before:rounded-full before:bg-primary before:content-[''];
 }
 
 /* feature card */
@@ -51,14 +54,14 @@
 
 /* cta link */
 .cta-link {
-  img {
-    transition: margin 0.3s ease;
-  }
-  &:hover {
-    img {
-      @apply ml-2;
-    }
-  }
+}
+
+.cta-link img {
+  transition: margin 0.3s ease;
+}
+
+.cta-link:hover img {
+  @apply ml-2;
 }
 
 /* card */
@@ -66,12 +69,24 @@
   @apply mt-10 rounded-[4px] border border-[rgba(0,0,0,.125)] bg-white dark:bg-darkmode-light dark:border-darkmode-border px-5 py-12 shadow md:mt-0;
 }
 
+.card h4 {
+  @apply mb-4;
+}
+
+.card h6 {
+  @apply mb-4;
+}
+
+.card ul {
+  @apply mb-6;
+}
+
 .col-recommended {
   @apply relative z-10 md:-mx-8! md:-my-6!;
+}
 
-  .card {
-    @apply border-0 shadow-[0_1rem_3rem_rgba(0,0,0,.175)];
-  }
+.col-recommended .card {
+  @apply border-0 shadow-[0_1rem_3rem_rgba(0,0,0,.175)];
 }
 
 /* faq */
@@ -86,13 +101,14 @@
 
 /* contact */
 .contact-list {
-  a {
-    @apply font-semibold text-text-dark dark:text-darkmode-text-dark;
-  }
+}
+
+.contact-list a {
+  @apply font-semibold text-text-dark dark:text-darkmode-text-dark;
 }
 
 /* swiper-pagination */
-.pagination {
+.swiper-pagination {
   @apply space-x-2 text-center;
 }
 

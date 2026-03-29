@@ -1,19 +1,21 @@
 <header class="header">
   <nav class="navbar container">
     <!-- logo -->
-    <div class="order-0">
-      {{ partial "logo.html" }}
+    <div class="flex-1">
+      <a href="{{ site.BaseURL | relLangURL }}" class="navbar-brand">
+        {{ partial "logo.html" }}
+      </a>
     </div>
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden">
-    <label id="show-button" for="nav-toggle" class="order-2 flex cursor-pointer items-center md:order-1 md:hidden">
+    <label id="show-button" for="nav-toggle" class="flex cursor-pointer items-center md:hidden">
       <i class="fas fa-bars h-6 text-xl"></i>
     </label>
-    <label id="hide-button" for="nav-toggle" class="order-2 cursor-pointer items-center md:order-1">
+    <label id="hide-button" for="nav-toggle" class="cursor-pointer items-center md:hidden">
       <i class="fas fa-times h-6 text-xl"></i>
     </label>
     <!-- /navbar toggler -->
-    <ul id="nav-menu" class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto md:space-x-3">
+    <ul id="nav-menu" class="navbar-nav hidden w-full md:flex md:w-auto md:space-x-3 md:flex-1 md:justify-center">
       {{ range site.Menus.main }}
       {{ if .HasChildren }}
       <li class="nav-item nav-dropdown group relative">
@@ -35,6 +37,30 @@
       </li>
       {{ end }}
       {{ end }}
+
+      <!-- Language Switcher -->
+      {{ if .IsTranslated }}
+      <li class="nav-item">
+        <select class="py-4 font-primary text-base font-bold text-text-dark dark:text-darkmode-text-dark transition hover:text-primary dark:hover:text-darkmode-primary border-0 bg-transparent cursor-pointer" onchange="location = this.value;">
+          {{ $siteLanguages := site.Languages}}
+          {{ $pageLang := .Page.Lang}}
+          {{ range .Page.AllTranslations }}
+          {{ $translation := .}}
+          {{ range $siteLanguages }}
+          {{ if eq $translation.Lang .Lang }}
+          {{ $selected := false }}
+          {{ if eq $pageLang .Lang}}
+          <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}</option>
+          {{ else }}
+          <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+          {{ end }}
+          {{ end }}
+          {{ end }}
+          {{ end }}
+        </select>
+      </li>
+      {{ end }}
+
       {{ if site.Params.navigation_button.enable }}
       {{ with site.Params.navigation_button }}
       <div class="block md:hidden">
@@ -45,13 +71,13 @@
     </ul>
     {{ if site.Params.navigation_button.enable }}
     {{ with site.Params.navigation_button }}
-    <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 md:flex gap-3">
-      <a class="btn btn-primary z-0 ml-auto py-[14px]" href="{{ .link | relLangURL }}" title="{{ .label }}">{{ .label }}</a>
+    <div class="flex-1 hidden items-center md:flex md:justify-end gap-3">
+      <a class="btn btn-primary z-0 py-[14px]" href="{{ .link | relLangURL }}" title="{{ .label }}">{{ .label }}</a>
       {{ partial "theme-switcher.html" . }}
     </div>
     {{ end }}
     {{ else }}
-    <div class="order-1 ml-auto hidden items-center md:order-2 md:flex gap-3">
+    <div class="flex-1 hidden items-center md:flex md:justify-end">
       {{ partial "theme-switcher.html" . }}
     </div>
     {{ end }}

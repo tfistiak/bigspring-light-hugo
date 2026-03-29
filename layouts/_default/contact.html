@@ -1,9 +1,12 @@
 {{ define "main" }}
 {{ partial "page-header.html" . }}
-<section class="section">
+<section class="section pt-0!">
   <div class="container">
     <div class="section row pb-0">
-      <div class="col-12 md:col-6 lg:col-7">
+       <div class="content col-12 md:col-6 ">
+        {{ .Content }}
+      </div>
+      <div class="col-12 md:col-6">
         <form class="contact-form" method="POST" action="{{ site.Params.contact_form_action | safeURL }}">
           <div class="mb-3">
             <input class="form-input w-full rounded" name="first_name" type="text" placeholder="{{ i18n `fname` }}" required>
@@ -20,9 +23,7 @@
           <button type="submit" class="btn btn-primary">{{ i18n "send" }}</button>
         </form>
       </div>
-      <div class="content col-12 md:col-6 lg:col-5">
-        {{ .Content }}
-      </div>
+     
     </div>
   </div>
 </section>

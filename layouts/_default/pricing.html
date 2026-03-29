@@ -6,19 +6,19 @@
       {{ range $i, $e := .Params.pricing_list }}
       <div class="col-12 md:col-4{{ if not .recommended }} lg:px-0{{ else }} col-recommended{{ end }}">
         <div class="card text-center">
-          <h4>{{ .name | markdownify }}</h4>
-          <div class="mt-5">
+          <h4 class="mb-4">{{ .name | markdownify }}</h4>
+          <div class="mb-4">
             <span class="text-5xl text-text-dark">{{ .currency }}{{ .price }}</span>
             <span>/ {{ .price_per }}</span>
           </div>
-          <h6 class="mt-2 font-normal text-text">{{ .info | markdownify }}</h6>
-          <ul class="mt-5">
+          <h6 class="mb-4 font-normal text-text">{{ .info | markdownify }}</h6>
+          <ul class="mb-6">
             {{ range .services }}
             <li class="mb-[10px] leading-5">{{ . | markdownify }}</li>
             {{ end }}
           </ul>
           {{ if .button.enable }}
-          <a class="btn mt-5{{ if .recommended }} btn-primary{{ else }} btn-outline-primary{{ end }}" href="{{ .button.link | relLangURL }}">{{ .button.label }}</a>
+          <a class="btn{{ if .recommended }} btn-primary{{ else }} btn-outline-primary{{ end }}" href="{{ .button.link | relLangURL }}">{{ .button.label }}</a>
           {{ end }}
         </div>
       </div>
@@ -36,11 +36,11 @@
         {{ partial "image" (dict "Src" .image "Alt" "call to action image" "Class" "w-full") }}
       </div>
       <div class="mt-5 text-center md:mt-0 md:text-left md:col-6 lg:col-5">
-        <h2>{{ .title | markdownify }}</h2>
-        {{ with .content }}<p class="mt-6">{{ . | markdownify }}</p>{{ end }}
+        <h2 class="mb-4">{{ .title | markdownify }}</h2>
+        {{ with .content }}<p class="mb-6">{{ . | markdownify }}</p>{{ end }}
         {{ if .button.enable }}
         {{ with .button }}
-        <a class="btn btn-primary mt-4" href="{{ .link | relLangURL }}">{{ .label }}</a>
+        <a class="btn btn-primary" href="{{ .link | relLangURL }}">{{ .label }}</a>
         {{ end }}
         {{ end }}
       </div>

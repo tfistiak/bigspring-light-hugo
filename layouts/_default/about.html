@@ -6,7 +6,7 @@
     <div class="flex flex-wrap items-center justify-between -mx-4 gap-y-8">
       <div class="w-full lg:w-1/2 px-4">
         <div class="pr-0 lg:pr-10">
-          <h1 class="section-title h2">{{.title | markdownify}}</h1>
+          <h1 class="section-title h2 mb-4">{{.title | markdownify}}</h1>
           <p class="mb-0">{{.content | markdownify}}</p>
         </div>
       </div>
@@ -24,7 +24,7 @@
     <div class="flex flex-wrap justify-center -mx-4 gap-y-8">
       {{with .Params.founders_quote}}
       <div class="w-full lg:w-8/12 px-4 text-center mx-auto mb-8">
-        <p class="lead text-dark">{{.content | markdownify}}</p>
+        <p class="lead text-dark mb-4">{{.content | markdownify}}</p>
         {{ partial "image" (dict "Src" .image "Alt" .name "Size" "100x" "Class" "rounded-circle mt-3 mx-auto") }}
         <h3 class="section-title h5 mt-3 mb-2">{{.name | markdownify}}</h3>
         <p class="mb-0">{{.subtitle | markdownify}}</p>
@@ -34,7 +34,7 @@
       {{with .Params.who_we_are}}
       <div class="w-full lg:w-1/2 px-4">
         <div class="bg-white px-8 py-10 rounded-2">
-          <h2 class="section-title h3">{{.title | markdownify}}</h2>
+          <h2 class="section-title h3 mb-4">{{.title | markdownify}}</h2>
           <p class="mb-0">{{.content | markdownify}}</p>
         </div>
       </div>
@@ -42,7 +42,7 @@
       {{with .Params.our_mission}}
       <div class="w-full lg:w-1/2 px-4">
         <div class="bg-white px-8 py-10 rounded-2">
-          <h2 class="section-title h3">{{.title | markdownify}}</h2>
+          <h2 class="section-title h3 mb-4">{{.title | markdownify}}</h2>
           <p class="mb-0">{{.content | markdownify}}</p>
         </div>
       </div>
@@ -58,7 +58,7 @@
   <div class="container container-delta">
     <div class="flex flex-wrap justify-center text-center -mx-4">
       <div class="w-full xl:w-7/12 lg:w-10/12 px-4 mb-10">
-        <h2 class="section-title h3">{{.title | markdownify}}</h2>
+        <h2 class="section-title h3 mb-6">{{.title | markdownify}}</h2>
       </div>
       <div class="w-full lg:w-10/12 px-4">
         <div class="flex flex-wrap justify-center -mx-4 gap-y-8">
@@ -109,8 +109,8 @@
   <div class="container">
     <div class="flex flex-wrap justify-center -mx-4 gap-y-6">
       <div class="w-full xl:w-3/12 lg:w-1/2 px-4 mb-8">
-        <h2 class="section-title h3">{{.title | markdownify}}</h2>
-        <p>{{.content | markdownify}}</p>
+        <h2 class="section-title h3 mb-4">{{.title | markdownify}}</h2>
+        <p class="mb-6">{{.content | markdownify}}</p>
       </div>
 
       {{range .images}}
@@ -129,8 +129,8 @@
       {{ with .join_our_team }}
       <div class="w-full xl:w-5/12 lg:w-10/12 px-4 mx-auto self-center">
         <div class="mt-8 xl:mt-0 text-center xl:text-left">
-          <h2 class="section-title h3">{{ .title | markdownify }}</h2>
-          {{with .content }}<p class="mb-4">{{ . | markdownify }}</p>{{ end }}
+          <h2 class="section-title h3 mb-4">{{ .title | markdownify }}</h2>
+          {{with .content }}<p class="mb-6">{{ . | markdownify }}</p>{{ end }}
           {{ if .button.enable }}
           {{ with .button }}
           <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn btn-sm btn-outline-primary">{{ .label }}</a>
